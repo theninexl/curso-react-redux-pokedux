@@ -6,7 +6,18 @@ export const PokemonList = ({ pokemons }) => {
   return (
     <div className='PokemonList'>
       {pokemons.map((pokemon) => {
-        return <PokemonCard name={pokemon.name} key={pokemon.name} />
+        const pokeAbilities = [];
+        pokemon.abilities.map(ability => {
+          pokeAbilities.push(ability.ability.name);
+        })
+        return (
+        <PokemonCard 
+          id={pokemon.id}
+          name={pokemon.name} 
+          key={pokemon.id}
+          image={pokemon.sprites.front_default}
+          abilities={pokeAbilities} />
+        );
       })}
     </div>
   );

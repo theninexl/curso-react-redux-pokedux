@@ -10,7 +10,7 @@ import'antd/dist/reset.css';
 
 const composeEnhancers = compose(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(logger, featuring, numberingPokes)
+  applyMiddleware(logger)
 )
 
 const store = createStore(pokemonsReducer, composeEnhancers);
