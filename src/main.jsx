@@ -5,13 +5,13 @@ import { pokemonsReducer } from './reducers/pokemons.js';
 import { Provider } from 'react-redux';
 import { compose, applyMiddleware, legacy_createStore as createStore } from 'redux';
 import { logger, featuring, numberingPokes } from './middlewares/index.js';
+import { thunk } from 'redux-thunk';
 import './index.css'
 import'antd/dist/reset.css';
 
-const composeEnhancers = compose(
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(logger)
-)
+const composeAlt = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const composeEnhancers = composeAlt(applyMiddleware(thunk,logger));
 
 const store = createStore(pokemonsReducer, composeEnhancers);
 
