@@ -16,7 +16,8 @@ export const PokemonList = ({ pokemons }) => {
           name={pokemon.name} 
           key={pokemon.id}
           image={pokemon.sprites.front_default}
-          abilities={pokeAbilities} />
+          abilities={pokeAbilities}
+          favorite={pokemon.favorite} />
         );
       })}
     </div>
