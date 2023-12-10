@@ -11,9 +11,11 @@ import './App.css';
 
 
 function App() {  
-
-  const pokemons = useSelector(state => state.pokemons);
-  const loading = useSelector(state => state.loading);
+  //esta forma de acceder al estado hay que actualizarla a los metodos de inmmutable.js. De igual manera que ahora necesitamos acceder a traves del metodo get de immutable porque el estado ya no se guarda como un objeto plano, utilizaremos el metodo toJS al final para volver a convertirlo a ese objeto plano, porque en el resto de componentes accediamos a los values como si fuera ese objeto plano y sería muy largo volver a poner state.get en todos ellos.
+  // const pokemons = useSelector(state => state.pokemons);
+  const pokemons = useSelector(state => state.get('pokemons')).toJS();
+  // const loading = useSelector(state => state.loading);
+  const loading = useSelector(state => state.get('loading'));
   const dispatch = useDispatch();
 
   useEffect(() => {
