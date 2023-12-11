@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { Provider } from 'react-redux';
 import { compose, applyMiddleware, legacy_createStore as createStore } from 'redux';
-import { logger, featuring, numberingPokes } from './middlewares/index.js';
+import { logger } from './middlewares/index.js';
 import { thunk } from 'redux-thunk';
 import './index.css'
 import'antd/dist/reset.css';
