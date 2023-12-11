@@ -1,14 +1,12 @@
 import { fromJS } from "immutable";
-import { SET_FAVORITE, SET_LOADING, SET_POKEMONS } from "../actions/types";
+import { SET_FAVORITE, SET_POKEMONS } from "../actions/types";
 
 //el initial state ahora ya no es un objeto plano de javascript sino que llama al método fromJS de Inmmutable.js para crear ese objeto immutable
 const initialState = fromJS({
   pokemons: [],
-  loading: false,
 });
 
 export const pokemonsReducer = (state = initialState, action) => {
-  console.log(state);
   switch(action.type) {
     case SET_POKEMONS: 
       // return {
@@ -39,14 +37,6 @@ export const pokemonsReducer = (state = initialState, action) => {
       
       // return { ...state, pokemons: newPokemonList}
       return state.setIn(['pokemons',currentPokemonIndex,'favorite'],!isFavorite);
-      
-    // case SET_LOADING: 
-    //   return{
-    //     ...state,
-    //     loading: action.payload
-    //   }
-    case SET_LOADING: 
-      return state.setIn(['loading'],action.payload);
     default: 
       return state;
   }
